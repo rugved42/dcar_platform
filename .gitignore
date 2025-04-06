@@ -1,0 +1,13 @@
+# Ignore build artifacts
+build/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+
+# MacOS junk
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
