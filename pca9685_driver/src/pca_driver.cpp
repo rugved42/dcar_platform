@@ -1,13 +1,13 @@
 // pca9685_driver.cpp
 #include <iostream>
-#include <fcntl.h>        // open()
-#include <unistd.h>       // read(), write(), usleep(), close(), sleep()
-#include <linux/i2c-dev.h> // I2C definitions
-#include <sys/ioctl.h>    // ioctl()
-#include <cerrno>         // errno
-#include <cstring>        // strerror()
-#include <cstdint>        // uint8_t, etc.
-#include <cmath>          // round(), floor()
+#include <fcntl.h> 
+#include <unistd.h>      
+#include <linux/i2c-dev.h>
+#include <sys/ioctl.h>    
+#include <cerrno>         
+#include <cstring>       
+#include <cstdint>       
+#include <cmath>      
 
 #define I2C_DEV "/dev/i2c-1"
 #define PCA9685_ADDR 0x40
@@ -83,12 +83,12 @@ int main() {
         close(fd);
         return 1;
     }
-    uint8_t sleepmode = (oldmode & 0x7F) | 0x10; // sleep
+    uint8_t sleepmode = (oldmode & 0x7F) | 0x10;
     writeReg(fd, MODE1, sleepmode);
     writeReg(fd, PRESCALE, prescale);
     writeReg(fd, MODE1, oldmode);
     usleep(5000);
-    writeReg(fd, MODE1, oldmode | 0x80);
+    writeReg(fd, MODE1, oldmode | 0x80); // Set restart bit
 
     // Pulse conversion (ms per tick)
     int pulse_length = 1000000 / 50;
@@ -116,7 +116,7 @@ int main() {
     sleep(2);
 
     std::cout << "Stopping...\n";
-    setSpeed(fd, 0.0, ms_per_tick); // stop
+    setSpeed(fd, 0.0, ms_per_tick); 
     sleep(2);
 
     std::cout << "Set speed: fast...\n";
@@ -124,7 +124,7 @@ int main() {
     sleep(2);
 
     std::cout << "Stopping...\n";
-    setSpeed(fd, 0.0, ms_per_tick); // stop
+    setSpeed(fd, 0.0, ms_per_tick);
     sleep(2);
 
     // Stop all channels
