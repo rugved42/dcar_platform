@@ -17,6 +17,8 @@ public:
     void goLeft();
     void goRight();
     void goStraight();
+    void stop();
+    void goReverse();
 
     ~DriveBase();
 

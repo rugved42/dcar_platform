@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cmath>
 #include <stdexcept>
+#include <unistd.h> // sleep
 
 
 DriveBase::DriveBase()
@@ -28,15 +29,30 @@ void DriveBase::setSteering(float angle) {
 }
 
 void DriveBase::goLeft() {
-    setSteeringPWM(1.2);
+    std::cout << "turn left" << std::endl;
+    setSteeringPWM(2.0);
 }
 
 void DriveBase::goRight() {
-    setSteeringPWM(1.8);
+    std::cout << "turn right" << std::endl;
+    setSteeringPWM(1.1);
 }
 
 void DriveBase::goStraight() {
-    setSteeringPWM(1.5);
+  std::cout << "Going straight" << std::endl;
+  setSteeringPWM(1.5);
+  sleep(2);
+  setSpeedPWM(1.6);
+
+}
+
+void DriveBase::stop() {
+  std::cout << "Stopping" << std::endl;
+  setSpeedPWM(0.0);
+}
+
+void DriveBase::goReverse() {
+  setSpeedPWM(0.220);
 }
 
 void DriveBase::setSpeedPWM(float ms) {

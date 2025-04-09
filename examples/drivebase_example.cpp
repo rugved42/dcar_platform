@@ -13,18 +13,15 @@ int main() {
     drive.goRight();
     sleep(2);
 
-    drive.setSteering(0.0f);  // Center
+    drive.goStraight();  // Center
     sleep(2);
 
-    drive.setSpeed(1.6f);     // Slow forward
-    sleep(2);
+    // drive.stop();     // Slow forward
+    // sleep(2);
 
-    drive.setSpeed(0.0f);     // Stop
-    sleep(2);
+    // drive.goReverse();     // Stop
+    // sleep(2);
 
-    drive.setSpeed(2.0f);     // Fast forward
+    drive.stop();     // Fast forward
     sleep(2);
-
-    drive.setSpeed(0.0f);     // Stop
-    return 0;
 }
