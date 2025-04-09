@@ -20,14 +20,14 @@ public:
     void stop();
     void goReverse();
 
+    void setSpeedPWM(float ms);
+    void setSteeringPWM(float ms);
+
     ~DriveBase();
 
 private:
     int fd_;
     float ms_per_tick_;
     PCA9685Driver* p_pca_driver;
-
-    void setSpeedPWM(float ms);
-    void setSteeringPWM(float ms);
 
 };

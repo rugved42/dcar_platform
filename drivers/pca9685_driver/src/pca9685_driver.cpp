@@ -66,6 +66,7 @@ void PCA9685Driver::setPWM(int channel, int on, int off) {
 
 void PCA9685Driver::setPulseMs(int channel, float ms) {
     int pulse = static_cast<int>((ms * 1000) / ms_per_tick_);
+    std::cout << "pulse " <<  pulse << std::endl;
     setPWM(channel, 0, pulse);
 }
 

@@ -35,15 +35,14 @@ void DriveBase::goLeft() {
 
 void DriveBase::goRight() {
     std::cout << "turn right" << std::endl;
-    setSteeringPWM(1.1);
+    setSteeringPWM(1.0);
 }
 
 void DriveBase::goStraight() {
   std::cout << "Going straight" << std::endl;
   setSteeringPWM(1.5);
-  sleep(2);
-  setSpeedPWM(1.6);
-
+  sleep(3);
+  setSpeedPWM(1.7);
 }
 
 void DriveBase::stop() {
@@ -52,7 +51,7 @@ void DriveBase::stop() {
 }
 
 void DriveBase::goReverse() {
-  setSpeedPWM(0.220);
+  setSpeedPWM(1.0);
 }
 
 void DriveBase::setSpeedPWM(float ms) {
