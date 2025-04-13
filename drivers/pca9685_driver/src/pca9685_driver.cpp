@@ -49,6 +49,9 @@ bool PCA9685Driver::initialize(float frequency) {
 
     int pulse_length = 1000000 / frequency;
     ms_per_tick_ = pulse_length / 4096.0f;
+    std::cout << "Driver initialized. Sending neutral for ESC calibration." << std::endl;
+    setPulseMs(0, 1.5f);
+    usleep(1000000);  // Hold neutral 1s before any commands
     return true;
 }
 

@@ -4,34 +4,32 @@
 
 int main() {
     DriveBase drive;
+    sleep(2.0);
+    // drive.setSteering(-1.0);
+    // // sleep(1.5);
+    // drive.setSpeed(SAFE_REVERSE_SPEED); // -1.38 is the appropriate speed
+    // sleep(2); // hold
 
-    drive.setSteering(0.0f);  // Center
-    sleep(2);
-
-    // drive.goLeft();
+    // drive.setSpeed(SAFE_FORWARD_SPEED); // 0.7 is the appropriate speed
+    // drive.setSteering(0.6);
     // sleep(2);
 
-    // drive.goRight();
-    // sleep(2);
+    // drive.stop();     // Fast forward
 
-    // drive.goStraight();  // Center
-    // sleep(2);
+    // drive.calibrateSteering();
+    
+    
 
-    for (double i = 1.0; i < 2.0; i+=0.1)
-    {
-        drive.setSpeedPWM(i);
-        sleep(2);
-        drive.setSpeedPWM(1.5f);
-        sleep(2);
-    }
+    // for (float i = -1.0; i < 1.0; i+=0.1)
+    // {
+    //     drive.setSteering(i);
+    // }
 
+    // drive.centerSteering();
+    // sleep(1.0);
+    // drive.stop();
 
-    // drive.stop();     // Slow forward
-    // sleep(2);
+    drive.keyboardControl();
 
-    drive.goReverse();     // Stop
-    sleep(2);
-
-    drive.stop();     // Fast forward
-    sleep(2);
+    return 0;
 }
