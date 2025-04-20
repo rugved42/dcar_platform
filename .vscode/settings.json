@@ -1,5 +1,5 @@
 {
-  "cmake.sourceDirectory": "/home/donkeycar/dcar_platform/pca9685_driver",
+  "cmake.sourceDirectory": "/home/donkeycar/dcar_platform",
   "files.associations": {
     "string": "cpp",
     "ostream": "cpp",

@@ -6,3 +6,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # drivers/CMakeLists.txt
 add_subdirectory(pca9685_driver)
+add_subdirectory(wheel_encoder)
