@@ -1,5 +1,5 @@
 {
-  "cmake.sourceDirectory": "/home/donkeycar/dcar_platform",
+  "cmake.sourceDirectory": "/home/donkeycar/dcar_platform/src/controllers",
   "files.associations": {
     "string": "cpp",
     "ostream": "cpp",
