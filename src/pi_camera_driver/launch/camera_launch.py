@@ -10,8 +10,8 @@ def generate_launch_description():
             name='pi_camera_node',
             output='screen'
         ),
-        ExecuteProcess(
-            cmd=['rviz2'],
-            output='screen'
-        )
+        # ExecuteProcess(
+        #     cmd=['rviz2'],
+        #     output='screen'
+        # )
     ])
