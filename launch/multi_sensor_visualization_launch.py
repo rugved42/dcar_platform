@@ -1,5 +1,3 @@
-# File: dcar_platform/src/examples/launch/sensor_fusion_no_rviz.launch.py
-
 from launch import LaunchDescription
 from launch_ros.actions import Node
 
@@ -8,13 +6,13 @@ def generate_launch_description():
         # RPLIDAR Node
         Node(
             package='rplidar_ros',
-            executable='rplidar_node',  # ✅ Correct executable
+            executable='rplidar_node',
             name='rplidar_node',
             output='screen',
             parameters=[
                 {'channel_type': 'serial'},
-                {'serial_port': '/dev/ttyUSB0'},   # double check this matches your device
-                {'serial_baudrate': 460800},       # based on your RPLidar model
+                {'serial_port': '/dev/ttyUSB0'},
+                {'serial_baudrate': 460800},   
                 {'frame_id': 'laser'},
                 {'inverted': False},
                 {'angle_compensate': True},
@@ -25,7 +23,7 @@ def generate_launch_description():
         # Raspberry Pi Camera Node
         Node(
             package='pi_camera_driver',
-            executable='camera_node',  # Adjust if needed
+            executable='camera_node',
             name='pi_camera_node',
             output='screen',
             parameters=[
@@ -39,8 +37,8 @@ def generate_launch_description():
             executable='static_transform_publisher',
             name='static_tf_lidar_camera',
             arguments=[
-                '0.2', '0.0', '0.1',   # Translation: 20cm forward, 10cm up (example)
-                '0', '0', '0',         # No rotation
+                '0.2', '0.0', '0.1',  
+                '0', '0', '0',
                 'laser_frame',
                 'camera_frame'
             ],
