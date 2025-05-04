@@ -40,18 +40,26 @@ public:
             return;
 
         float sum_gx = 0, sum_gy = 0, sum_gz = 0;
+        float sum_ax = 0, sum_ay = 0, sum_az = 0;
         for (const auto& s : samples_)
         {
             sum_gx += s.gyro_x;
             sum_gy += s.gyro_y;
             sum_gz += s.gyro_z;
+
+            sum_ax += s.accel_x;
+            sum_ay += s.accel_y;
+            sum_az += s.accel_z;
         }
 
         gyro_bias_x_ = sum_gx / samples_.size();
         gyro_bias_y_ = sum_gy / samples_.size();
         gyro_bias_z_ = sum_gz / samples_.size();
 
-        // (Optional) could also estimate accel bias if needed
+        accel_bias_x_ = sum_ax / samples_.size();
+        accel_bias_y_ = sum_ay / samples_.size();
+        accel_bias_z_ = sum_az / samples_.size();
+
     }
 
     void apply(ImuData& data) const
@@ -59,6 +67,10 @@ public:
         data.gyro_x -= gyro_bias_x_;
         data.gyro_y -= gyro_bias_y_;
         data.gyro_z -= gyro_bias_z_;
+
+        data.accel_x -= accel_bias_x_;
+        data.accel_y -= accel_bias_y_;
+        data.accel_z -= accel_bias_z_;
     }
 
 private:
@@ -66,6 +78,10 @@ private:
     float gyro_bias_x_ = 0.0f;
     float gyro_bias_y_ = 0.0f;
     float gyro_bias_z_ = 0.0f;
+
+    float accel_bias_x_ = 0.0f;
+    float accel_bias_y_ = 0.0f;
+    float accel_bias_z_ = 0.0f;
 };
 
 class MPU9250Driver
