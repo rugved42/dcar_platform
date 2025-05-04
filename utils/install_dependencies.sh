@@ -22,3 +22,7 @@ sudo apt install -y libcamera-apps v4l-utils
 
 
 sudo apt install -y ros-foxy-serial-driver
+sudo apt install -y i2c-tools
+
+pip install smbus2
+
